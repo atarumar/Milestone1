@@ -12,19 +12,15 @@ password.addEventListener("input", (e) => {
   if (strength === "very weak") {
     box.style.backgroundColor = "#ff4b4b"; // Red for very weak
     strengthText.innerText = "Very Weak";
-    strengthText.style.color = "#ff4b4b";
   } else if (strength === "weak") {
     box.style.backgroundColor = "#ff7f7f"; // Lighter Red for weak
     strengthText.innerText = "Weak";
-    strengthText.style.color = "#ff7f7f";
   } else if (strength === "medium") {
     box.style.backgroundColor = "#ffcc00"; // Yellow for medium
     strengthText.innerText = "Medium";
-    strengthText.style.color = "#ffcc00";
   } else if (strength === "strong") {
     box.style.backgroundColor = "#32cd32"; // Green for strong
     strengthText.innerText = "Strong";
-    strengthText.style.color = "#32cd32";
   } else if (strength === "very strong") {
     box.style.backgroundColor = "#008000"; // Dark Green for very strong
     strengthText.innerText = "Very Strong";
@@ -42,11 +38,13 @@ function checkPasswordStrength(password) {
     return "very weak";
   } else if (password.length < 6) {
     return "weak";
-  } else if (password.length >= 6 && !strongPassword.test(password)) {
+  } else if (password.length >= 6 && password.length < 8) {
     return "medium";
-  } else if (password.length >= 8 && strongPassword.test(password)) {
-    return "strong";
-  } else if (password.length >= 10) {
-    return "very strong";
+  } else if (password.length >= 8 && !strongPassword.test(password)) {
+    return "strong"; // Adjust condition to check strength
+  } else if (password.length >= 10 && strongPassword.test(password)) {
+    return "very strong"; // Corrected logic
   }
 }
+
+

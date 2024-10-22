@@ -47,7 +47,7 @@ body {
 #strengthText {
   text-align: center;
   margin-top: 10px;
-  color: #fff; /* Keep the text color white */
+  color: #000000; /* Keep the text color white */
 }
 
 .very-weak {
@@ -79,6 +79,28 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   color:#fff
+}
+/* Style for the Next button */
+#nextButton {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: #adec52; /* Green background */
+  padding: 12px 24px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#nextButton:hover {
+  background-color: #ffffff;
+  color:#000000 /* Darker green when hovering */
+}
+
+#nextButton:active {
+  transform: scale(0.98);
 }
 
 

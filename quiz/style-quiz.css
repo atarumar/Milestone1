@@ -71,6 +71,7 @@ button:focus {
   outline: none;
   background-color: #adec52;
 }
+
 .logo {
   position: absolute;
   top: 16px;
@@ -84,4 +85,12 @@ button:focus {
   font-size: 1.6rem;
   font-weight: 700;
   color:#fff;
+}
+.logo-link {
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Keep the color as is */
+}
+
+.logo-link h1 {
+  cursor: pointer; /* Make it clear that the logo is clickable */
 }

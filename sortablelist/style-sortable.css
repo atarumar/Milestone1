@@ -39,6 +39,14 @@ body {
   font-weight: 700;
   color:#fff;
 }
+.logo-link {
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Keep the color as is */
+}
+
+.logo-link h1 {
+  cursor: pointer; /* Make it clear that the logo is clickable */
+}
 h1 {
   color: var(--upper-text-color);
 }

@@ -9,16 +9,22 @@
       integrity="sha512-KO1h5ynYuqsFuEicc7DmOQc+S9m2xiCKYlC3zcZCSEw0RGDsxcMnppRaMZnb0DdzTDPaW22ID/gAGCZ9i+RT/w=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
-    <title>Password Strength Background</title>
+    <link rel="stylesheet" href="style-passchecker.css" />
+    <title>DigiLiterate</title>
   </head>
   <body>
-    <div class="logo"><h1>DigiLit Escape</h1></div>
+    <header>
+      <a href="../landingpage/landingpage.html" class="logo-link">
+        <div class="logo">
+          <h1>DigiLiterate"</h1>
+        </div>
+      </a>    
+    </header>
     <div class="background" id="background"></div>
     <div class="bg-white rounded p-10 text-center shadow-md" id="strengthBox">
       <h1 class="text-3xl">Image Password Strength</h1>
       <p class="text-sm pt-1 text-gray-700">
-        Change the password to see the effect
+        Tip: Use uppercase, lowercase letters, numbers, and special characters like !, @, #.
       </p>
       <div class="my-4 text-left">
         <label for="password" class="text-gray-900">Password:</label>
@@ -32,14 +38,17 @@
       </div>
       <!-- Add a div below the password input to display the password strength -->
       <p id="strengthText" class="text-xl font-bold"></p>
-      <button
-        type="submit"
-        class="bg-black text-white py-2 mt-4 inline-block w-full rounded"
-      >
-        Submit
-      </button>
     </div>
     
-    <script src="script.js"></script>
+    <button
+      id="nextButton"
+      class="bg-green-500 text-white py-2 mt-6 rounded text-center w-48"
+      style="display: block; margin: 20px auto;"
+      onclick="window.location.href= '../quiz/quiz.html';"
+    >
+      Next
+    </button>
+    
+    <script src="script-passchecker.js"></script>
   </body>
 </html>

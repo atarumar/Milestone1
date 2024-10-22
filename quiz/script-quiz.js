@@ -82,12 +82,21 @@ submitButton.addEventListener("click", () => {
   if (answer) {
     if (answer === quizData[currentQuiz].correct) score++;
     currentQuiz++;
-    if (currentQuiz < quizData.length) loadQuiz();
-    else {
-      quiz.innerHTML = `
-            <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-            <button onclick="history.go(0)">Play Again</button>
+    if (currentQuiz < quizData.length) {
+      loadQuiz();
+    } else {
+      if (score === 5) {
+        quiz.innerHTML = `
+          <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+          <button onclick="window.location.href='../landingpage/landingpage.html'">Back to Home</button>
         `;
+      } else {
+        quiz.innerHTML = `
+          <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+          <button onclick="history.go(0)">Play Again</button>
+        `;
+      }
     }
   }
 });
+
