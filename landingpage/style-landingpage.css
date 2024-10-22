@@ -120,7 +120,7 @@ section.home {
 .puzzles .puzzle h3 {
   font-size: 1.6rem;
   font-weight: 500;
-  margin-top: 20px;
+  margin-top: 30px;
   color: var(--secondary-color);
 }
 
@@ -130,6 +130,38 @@ section.home {
   margin: 10px 0;
 }
 
+.puzzle-link {
+  text-decoration: none;  
+  color: inherit; 
+  display: block;  
+}
+
+.puzzle-link .puzzle {
+  background-color: #111;  
+  border-radius: 0px;
+  transition: background-color 0.3s ease;
+}
+
+.puzzle-link .puzzle:hover {
+  background-color: #222; 
+  cursor: pointer;  /* Change the cursor to pointer to indicate it's clickable */
+}
+
+.puzzle-link .icon img {
+  max-width: 100px;  /* Adjust the icon size */
+}
+
+.puzzle-link h3 {
+  color: #adec52;  /* Style for the puzzle title */
+  font-size: 1.6rem;
+  margin: 10px 0;
+}
+
+.puzzle-link p {
+  color: #fff;  /* Style for the description text */
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
 
 
 /* MEDIA QUERIES */
@@ -176,6 +208,7 @@ section.home {
   .puzzles {
     grid-template-columns: repeat(3, 1fr);
   }
+
 
 
 }

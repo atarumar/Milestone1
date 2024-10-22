@@ -73,14 +73,17 @@ function swapItems(fromIndex, toIndex) {
 
 function checkOrder() {
   listItems.forEach((listItem, index) => {
-    const personName = listItem.querySelector(".draggable").innerText.trim();
-    if (personName !== secureHomeNetwork[index]) listItem.classList.add("wrong");
-    else {
+    const personName = listItem.querySelector(".draggable p").innerText.trim();
+    if (personName !== secureHomeNetwork[index].trim()) {
+      listItem.classList.add("wrong");
+      listItem.classList.remove("right");
+    } else {
       listItem.classList.remove("wrong");
       listItem.classList.add("right");
     }
   });
 }
+
 
 // Event Listeners
 function addListeners() {
@@ -96,6 +99,14 @@ function addListeners() {
     item.addEventListener("dragleave", dragLeave);
   });
 }
+const nextButton = document.getElementById("next");
+
+nextButton.addEventListener("click", () => {
+
+  alert("Proceeding to the next challenge!");
+
+});
+
 
 check.addEventListener("click", checkOrder);
 

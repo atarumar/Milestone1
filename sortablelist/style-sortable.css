@@ -25,7 +25,20 @@ body {
   height: 100vh;
   margin: 0;
 }
-
+.logo {
+  position: absolute;
+  top: 16px;
+  left: 40px;
+  z-index: 20;
+  font-size: 1.6rem;
+  font-weight: 700;
+  
+}
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color:#fff;
+}
 h1 {
   color: var(--upper-text-color);
 }
@@ -87,7 +100,7 @@ p {
 }
 
 .check-btn {
-  background-color: var(--background-secondary-color);
+  background-color: #adec52;
   border: none;
   color: var(--text-color);
   font-size: 1rem;
@@ -107,3 +120,37 @@ p {
 .check-btn:focus {
   outline: none;
 }
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;  /* Adjust space between buttons */
+  margin-top: 0px;  /* Space between buttons and the list */
+}
+
+.check-btn, .next-btn {
+  margin-top: 0; 
+  background-color: #adec52;
+  border: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.next-btn i {
+  margin-left: 8px;  /* Space between text and icon in the button */
+}
+
+.next-btn:hover, .check-btn:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.next-btn:focus, .check-btn:focus {
+  outline: none;
+}
+
+
+
