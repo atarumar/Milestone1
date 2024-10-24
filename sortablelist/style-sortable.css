@@ -25,6 +25,7 @@ body {
   height: 100vh;
   margin: 0;
 }
+
 .logo {
   position: absolute;
   top: 16px;
@@ -32,27 +33,29 @@ body {
   z-index: 20;
   font-size: 1.6rem;
   font-weight: 700;
-  
 }
+
 .logo h1 {
   font-size: 1.6rem;
   font-weight: 700;
-  color:#fff;
+  color: #fff;
 }
+
 .logo-link {
-  text-decoration: none; /* Remove underline from the link */
-  color: inherit; /* Keep the color as is */
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo-link h1 {
-  cursor: pointer; /* Make it clear that the logo is clickable */
+  cursor: pointer;
 }
+
 h1 {
   color: var(--upper-text-color);
 }
 
 p {
-  color: var(--upper-text-color)
+  color: var(--upper-text-color);
 }
 
 .draggable-list {
@@ -128,15 +131,16 @@ p {
 .check-btn:focus {
   outline: none;
 }
+
 .button-container {
   display: flex;
   justify-content: center;
-  gap: 10px;  /* Adjust space between buttons */
-  margin-top: 0px;  /* Space between buttons and the list */
+  gap: 10px;
+  margin-top: 0px;
 }
 
 .check-btn, .next-btn {
-  margin-top: 0; 
+  margin-top: 0;
   background-color: #adec52;
   border: none;
   color: var(--text-color);
@@ -148,7 +152,7 @@ p {
 }
 
 .next-btn i {
-  margin-left: 8px;  /* Space between text and icon in the button */
+  margin-left: 8px;
 }
 
 .next-btn:hover, .check-btn:hover {
@@ -161,4 +165,90 @@ p {
 }
 
 
+@media (max-width: 575px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  
+  .draggable-list .number {
+    font-size: 1.4rem;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .draggable {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+  
+  .check-btn, .next-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
 
+@media (min-width: 576px) and (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .draggable-list .number {
+    font-size: 1.6rem;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .draggable {
+    font-size: 1rem;
+    padding: 0.85rem;
+  }
+  
+  .check-btn, .next-btn {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .draggable-list .number {
+    font-size: 1.75rem;
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+  
+  .draggable {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+  
+  .check-btn, .next-btn {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .draggable-list .number {
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .draggable {
+    font-size: 1.2rem;
+    padding: 1.25rem;
+  }
+  
+  .check-btn, .next-btn {
+    font-size: 1.2rem;
+    padding: 14px 28px;
+  }
+}

@@ -88,7 +88,7 @@ submitButton.addEventListener("click", () => {
       if (score === 5) {
         quiz.innerHTML = `
           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-          <button onclick="window.location.href='../landingpage/landingpage.html'">Back to Home</button>
+          <button onclick="window.location.href='../landingpage/index.html'">Back to Home</button>
         `;
       } else {
         quiz.innerHTML = `

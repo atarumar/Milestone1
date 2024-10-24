@@ -50,8 +50,6 @@ body {
   font-weight: 700;
 }
 
-
-/* SECTIONS */
 section {
   display: flex;
   flex-direction: column;
@@ -73,7 +71,7 @@ p {
   font-weight: 300;
 }
 
-/* HOME SECTION */
+
 section.home {
   flex-direction: row;
   margin-top: 0;
@@ -85,7 +83,6 @@ section.home {
   max-width: 600px;
 }
 
-/* Reference: https://stackoverflow.com/questions/43683187/how-can-i-create-custom-underline-or-highlight-for-text-in-html-or-css */
 .highlight {
   background: linear-gradient(
     180deg,
@@ -99,7 +96,6 @@ section.home {
   display: none;
 }
 
-/* SERVICES */
 .puzzles {
   margin-top: 40px;
   display: grid;
@@ -144,27 +140,27 @@ section.home {
 
 .puzzle-link .puzzle:hover {
   background-color: #222; 
-  cursor: pointer;  /* Change the cursor to pointer to indicate it's clickable */
+  cursor: pointer;  
 }
 
 .puzzle-link .icon img {
-  max-width: 100px;  /* Adjust the icon size */
+  max-width: 100px;  
 }
 
 .puzzle-link h3 {
-  color: #adec52;  /* Style for the puzzle title */
+  color: #adec52;  
   font-size: 1.6rem;
   margin: 10px 0;
 }
 
 .puzzle-link p {
-  color: #fff;  /* Style for the description text */
+  color: #fff;  
   font-size: 1.1rem;
   line-height: 1.5;
 }
 
 
-/* MEDIA QUERIES */
+
 @media (min-width: 768px) {
   .puzzles {
     grid-template-columns: repeat(2, 1fr);

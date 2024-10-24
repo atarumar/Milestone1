@@ -13,32 +13,49 @@ const secureHomeNetwork = [
   "Regularly review security settings"
 ];
 
-
 const listItems = [];
-
 let dragStartIndex;
 
+
 function createList() {
-  const newList = [...secureHomeNetwork];
-  newList
-    .map((person) => ({ value: person, sort: Math.random() })) // randomize list
-    .sort((a, b) => a.sort - b.sort) // generate new order
-    .map((person) => person.value) // retrieve original strings
-    .forEach((person, index) => {
+  secureHomeNetwork
+    .map((item) => ({ value: item, sort: Math.random() }))  
+    .sort((a, b) => a.sort - b.sort)
+    .map((item) => item.value)
+    .forEach((item, index) => {
       const listItem = document.createElement("li");
       listItem.setAttribute("data-index", index);
       listItem.innerHTML = `
         <span class="number">${index + 1}</span>
         <div class="draggable" draggable="true">
-          <p class="person-name">${person}</p>
+          <p class="person-name">${item}</p>
           <i class="fas fa-grip-lines"></i>
         </div>
       `;
       listItems.push(listItem);
       draggableList.appendChild(listItem);
     });
+
   addListeners();
 }
+
+
+function addListeners() {
+  const draggables = document.querySelectorAll(".draggable");
+  const dragListItems = document.querySelectorAll(".draggable-list li");
+
+  draggables.forEach((draggable) => {
+    draggable.addEventListener("dragstart", dragStart);
+  });
+
+  dragListItems.forEach((item) => {
+    item.addEventListener("dragover", dragOver);
+    item.addEventListener("drop", dragDrop);
+    item.addEventListener("dragenter", dragEnter);
+    item.addEventListener("dragleave", dragLeave);
+  });
+}
+
 
 function dragStart() {
   dragStartIndex = +this.closest("li").getAttribute("data-index");
@@ -53,7 +70,7 @@ function dragLeave() {
 }
 
 function dragOver(e) {
-  e.preventDefault(); // dragDrop is not executed otherwise
+  e.preventDefault();
 }
 
 function dragDrop() {
@@ -62,53 +79,45 @@ function dragDrop() {
   this.classList.remove("over");
 }
 
+
 function swapItems(fromIndex, toIndex) {
-  // Get Items
   const itemOne = listItems[fromIndex].querySelector(".draggable");
   const itemTwo = listItems[toIndex].querySelector(".draggable");
-  // Swap Items
+
   listItems[fromIndex].appendChild(itemTwo);
   listItems[toIndex].appendChild(itemOne);
 }
 
+
 function checkOrder() {
+  let isCorrect = true; 
+  
   listItems.forEach((listItem, index) => {
     const personName = listItem.querySelector(".draggable p").innerText.trim();
+
     if (personName !== secureHomeNetwork[index].trim()) {
       listItem.classList.add("wrong");
       listItem.classList.remove("right");
+      isCorrect = false; 
     } else {
       listItem.classList.remove("wrong");
       listItem.classList.add("right");
     }
   });
+
+  
+  if (isCorrect) {
+    const checkBtn = document.getElementById("check");
+    checkBtn.innerHTML = 'Back to Home <i class="fas fa-home"></i>'; 
+    checkBtn.removeEventListener("click", checkOrder); 
+
+    
+    checkBtn.addEventListener("click", () => {
+      window.location.href = "../landingpage/index.html"; 
+    });
+  }
 }
 
 
-// Event Listeners
-function addListeners() {
-  const draggables = document.querySelectorAll(".draggable");
-  const dragListItems = document.querySelectorAll(".draggable-list li");
-  draggables.forEach((draggable) => {
-    draggable.addEventListener("dragstart", dragStart);
-  });
-  dragListItems.forEach((item) => {
-    item.addEventListener("dragover", dragOver);
-    item.addEventListener("drop", dragDrop);
-    item.addEventListener("dragenter", dragEnter);
-    item.addEventListener("dragleave", dragLeave);
-  });
-}
-const nextButton = document.getElementById("next");
-
-nextButton.addEventListener("click", () => {
-
-  alert("Proceeding to the next challenge!");
-
-});
-
-
-check.addEventListener("click", checkOrder);
-
-// Init
 createList();
+check.addEventListener("click", checkOrder);

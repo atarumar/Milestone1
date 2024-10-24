@@ -8,7 +8,7 @@ const userAnswerInput = document.getElementById("userAnswer");
 let currentActiveCard = 0;
 const cardsElement = [];
 
-// The digital ethics questions and answers
+
 const cardsData = [
   { question: "What is digital privacy?", answer: "Protecting data" },
   { question: "What does cyberbullying involve?", answer: "Online harassment" },
@@ -19,12 +19,12 @@ const cardsData = [
   { question: "What is digital footprint?", answer: "Online activity trail" }
 ];
 
-// Create all cards
+
 function createCards() {
   cardsData.forEach((data, index) => createCard(data, index));
 }
 
-// Create a single card
+
 function createCard(data, index) {
   const card = document.createElement("div");
   card.classList.add("card");
@@ -44,23 +44,22 @@ function createCard(data, index) {
   updateCurrentText();
 }
 
-// Update the current card number display
+
 function updateCurrentText() {
   currentElement.innerText = `${currentActiveCard + 1}/${cardsElement.length}`;
 }
 
-// Show the answer by flipping the card after submission
 submitAnswerButton.addEventListener("click", () => {
   const userAnswer = userAnswerInput.value.trim().toLowerCase();
   const correctAnswer = cardsData[currentActiveCard].answer.toLowerCase();
 
   
 
-  // Flip the card to reveal the correct answer
+
   cardsElement[currentActiveCard].classList.add("show-answer");
 });
 
-// Next/Prev buttons to navigate through cards
+
 nextButton.addEventListener("click", () => {
   cardsElement[currentActiveCard].className = "card left";
   currentActiveCard++;
@@ -81,24 +80,24 @@ prevButton.addEventListener("click", () => {
   updateCurrentText();
 });
 
-// Initialize the cards
+
 createCards();
 
 
 const resultText = document.getElementById("result");
 
-// Modify the submitAnswer function
+
 submitButton.addEventListener("click", () => {
   const userAnswer = answerInput.value.trim().toLowerCase();
   const correctAnswer = cardsData[currentActiveCard].answer.toLowerCase();
 
   if (userAnswer === correctAnswer) {
     resultText.innerText = "Correct!";
-    resultText.style.color = "green"; // Change the color to green for correct answers
-    cardsElement[currentActiveCard].classList.add("show-answer"); // Flip the card to show the answer
+    resultText.style.color = "green"; 
+    cardsElement[currentActiveCard].classList.add("show-answer"); 
   } else {
     resultText.innerText = `Incorrect! The correct answer is: ${cardsData[currentActiveCard].answer}`;
-    resultText.style.color = "red"; // Change the color to red for incorrect answers
-    cardsElement[currentActiveCard].classList.add("show-answer"); // Flip the card to show the answer
+    resultText.style.color = "red"; 
+    cardsElement[currentActiveCard].classList.add("show-answer"); 
   }
 });
